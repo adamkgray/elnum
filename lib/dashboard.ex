@@ -1,30 +1,26 @@
 defmodule Dashboard do
-  def start do
-    ElnumSup.start_link()
-  end
-
   def stop do
     IO.puts("Stopping Elnum")
-    GenServer.stop(Elnum)
+    GenServer.stop(ElnumServer)
   end
 
   def call do
-    GenServer.call(Elnum, {})
+    GenServer.call(ElnumServer, {})
   end
 
   def add(number) do
-    GenServer.cast(Elnum, {:add, number})
+    GenServer.cast(ElnumServer, {:add, number})
   end
 
   def subtract(number) do
-    GenServer.cast(Elnum, {:subtract, number})
+    GenServer.cast(ElnumServer, {:subtract, number})
   end
 
   def multiply(number) do
-    GenServer.cast(Elnum, {:multiply, number})
+    GenServer.cast(ElnumServer, {:multiply, number})
   end
 
   def divide(number) do
-    GenServer.cast(Elnum, {:divide, number})
+    GenServer.cast(ElnumServer, {:divide, number})
   end
 end

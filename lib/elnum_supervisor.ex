@@ -7,7 +7,7 @@ defmodule ElnumSup do
 
   def init([]) do
     children = [
-      worker(Elnum, [], [])
+      worker(ElnumServer, [], [])
     ]
     supervise(children, [strategy: :one_for_one])
   end
